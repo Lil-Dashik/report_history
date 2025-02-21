@@ -29,11 +29,11 @@ public class ReportServes {
         reports.add(new Report(3L, "no_punkz", 5, LocalDate.of(2021, 9, 27),
                 "Продолжаю мучать предпоследнюю задачу (теперь и Толяна), собес на котором узнал много нового"));
 
-        reports.add(new Report(4L, "user_123", 3, LocalDate.of(2021, 9, 20),
-                "Учился писать unit-тесты, было сложно, но интересно"));
+        reports.add(new Report(4L, "user1", 7, LocalDate.of(2021, 9, 23),
+                " Теория по 6 модулю. Ответы на вопросы по 6 модулю, задачка по эко, report"));
 
-        reports.add(new Report(5L, "user_123", 4, LocalDate.of(2021, 9, 21),
-                "Сегодня работал над проектом, много времени ушло на рефакторинг"));
+        reports.add(new Report(5L, "user1", 6, LocalDate.of(2021, 9, 22),
+                "Теория по 6 модулю. Переделывала задачку по эко"));
         return reports;
     }
 }
