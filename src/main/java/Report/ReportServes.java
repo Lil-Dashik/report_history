@@ -22,10 +22,8 @@ public class ReportServes {
         List<Report> reports = new ArrayList<>();
         reports.add(new Report(1L, "no_punkz", 2, LocalDate.of(2021, 9, 26),
                 "Бился над компаратором, пытался накостылить через видимую внешнюю переменную, начал читать о решениях из чата"));
-
         reports.add(new Report(4L, "no_punkz", 7, LocalDate.of(2021, 9, 23),
                 " Теория по 6 модулю. Ответы на вопросы по 6 модулю, задачка по эко, report"));
-
         reports.add(new Report(5L, "no_punkz", 6, LocalDate.of(2021, 9, 22),
                 "Теория по 6 модулю. Переделывала задачку по эко"));
         reports.add(new Report(6L, "no_punkz", 7, LocalDate.of(2025, 2, 14),
