@@ -32,7 +32,7 @@ public class MinMax<T> {
 // можно было бы ещё вот так, но на степике метод findMinMax статический.
 //private T min = null;
 //private T max = null;
-//public static <T> void findMinMax(
+//public <T> void findMinMax(
 //        Stream<? extends T> stream,
 //        Comparator<? super T> order,
 //        BiConsumer<? super T, ? super T> minMaxConsumer) {
