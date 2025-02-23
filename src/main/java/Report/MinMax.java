@@ -1,9 +1,6 @@
 package Report;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.function.BiConsumer;
 import java.util.stream.Stream;
 
@@ -13,18 +10,16 @@ public class MinMax<T> {
             Stream<? extends T> stream,
             Comparator<? super T> order,
             BiConsumer<? super T, ? super T> minMaxConsumer) {
-        Optional<List<T>> minMax = stream.reduce(
-                Optional.empty(),
-                (acc, n) -> Optional.of(Arrays.asList(
-                        acc.map(list -> order.compare(n, list.get(0)) < 0 ? n : list.get(0)).orElse(n),
-                        acc.map(list -> order.compare(n, list.get(1)) > 0 ? n : list.get(1)).orElse(n)
-                )),
-                (a, b) -> a
-        );
-        minMaxConsumer.accept(
-                minMax.map(list -> list.get(0)).orElse(null),
-                minMax.map(list -> list.get(1)).orElse(null)
-        );
+        List<T> minMax = new ArrayList<>(Arrays.asList(null, null));
+        stream.forEach(n -> {
+            if (minMax.get(0)== null || order.compare(n, minMax.get(0)) < 0) {
+                minMax.set(0, n);
+            }
+            if (minMax.get(1) == null || order.compare(n, minMax.get(1)) > 0) {
+                minMax.set(1, n);
+            }
+        });
+        minMaxConsumer.accept(minMax.get(0), minMax.get(1));
     }
 
 
@@ -34,4 +29,22 @@ public class MinMax<T> {
                 System.out.println("Min: " + min + ", Max: " + max));
     }
 }
+// можно было бы ещё вот так, но на степике метод findMinMax статический.
+//private T min = null;
+//private T max = null;
+//public static <T> void findMinMax(
+//        Stream<? extends T> stream,
+//        Comparator<? super T> order,
+//        BiConsumer<? super T, ? super T> minMaxConsumer) {
+//      stream.forEach(t -> {
+//            if (order.compare(t, this.min) == -1) {
+//                min = t;
+//            }
+//            if (order.compare(t, this.max) == 1) {
+//                max = t;
+//            }
+//        });
+//        minMaxConsumer.accept(min, max);
+// }
+
 
